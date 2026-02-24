@@ -1,0 +1,314 @@
+.heroSection {
+    position: relative;
+    padding: 6rem 2rem 8rem;
+    overflow: hidden;
+    background-color: var(--color-bg-primary);
+    min-height: calc(100vh - 80px);
+    /* Restando el header apróx */
+    display: flex;
+    align-items: center;
+}
+
+/* Background animated glows for premium feel */
+.bgImageContainer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.bgImage {
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.8;
+    /* Slight fade to mix with glow */
+}
+
+.bgImageOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.95) 100%);
+    z-index: 1;
+}
+
+.bgGlowBase {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(220, 38, 38, 0.08) 0%, rgba(248, 250, 252, 0) 70%);
+    /* Accent primary subtle */
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+    animation: pulseGlow 8s infinite alternate;
+}
+
+.bgGlowAccent {
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(29, 78, 216, 0.05) 0%, rgba(248, 250, 252, 0) 70%);
+    /* Accent secondary */
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+    animation: pulseGlow 10s infinite alternate-reverse;
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: scale(1) translate(0, 0);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.1) translate(20px, -20px);
+        opacity: 1;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    display: grid;
+    /* First col: Metrics (1fr), Second col: Text (1.2fr to give it more weight) */
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+    }
+}
+
+.content {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    /* All children (badge, actions) to right */
+    text-align: right;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(220, 38, 38, 0.1);
+    color: var(--color-accent-primary);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.15) inset;
+}
+
+.badgeDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-accent-primary);
+    box-shadow: 0 0 8px var(--color-accent-primary);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(220, 38, 38, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+    }
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    opacity: 0.8;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+@media (max-width: 992px) {
+    .subtitle {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        align-items: center;
+    }
+
+    .content {
+        align-items: center;
+    }
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    .actions {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .primaryBtn,
+    .secondaryBtn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+.primaryBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--color-accent-primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px 0 rgba(220, 38, 38, 0.39);
+}
+
+.primaryBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.23);
+}
+
+.secondaryBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--color-text-primary);
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.1) inset;
+}
+
+.secondaryBtn:hover {
+    background-color: rgba(15, 23, 42, 0.05);
+}
+
+/* Right side Visuals (Glassmorphism Metrics) */
+.visuals {
+    position: relative;
+    animation: fadeUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    position: relative;
+}
+
+/* Make one column slightly offset for a dynamic "masonry-ish" feel */
+.metricsGrid .metricCard:nth-child(even) {
+    transform: translateY(2rem);
+}
+
+@media (max-width: 992px) {
+    .metricsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .metricsGrid .metricCard:nth-child(even) {
+        transform: none;
+    }
+}
+
+.metricCard {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metricCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.metricValue {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-accent-secondary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--color-accent-secondary) 0%, #0ea5e9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.metricLabel {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    opacity: 0.7;
+    line-height: 1.4;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,188 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all var(--transition-smooth);
+}
+
+.headerB2B {
+    background-color: color-mix(in srgb, var(--color-bg-surface) 90%, transparent);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+    .headerB2B {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
+
+[data-theme='dark'] .headerB2B {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.headerB2C {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Force B2C texts */
+.headerB2C .logo a,
+.headerB2C .link {
+    color: #F8FAFC;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    height: 80px;
+}
+
+.logo a {
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.logo a:hover {
+    opacity: 0.8;
+}
+
+.headerB2C .logo a {
+    font-family: var(--font-geist-mono), monospace;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(220, 38, 38, 0.4);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    opacity: 0.7;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-accent-secondary);
+    transition: width 0.3s ease;
+}
+
+.link:hover {
+    opacity: 1;
+}
+
+.link:hover::after {
+    width: 100%;
+}
+
+.headerB2C .link::after {
+    background-color: #DC2626;
+}
+
+.headerB2C .link:hover {
+    color: #DC2626;
+    text-shadow: 0 0 8px rgba(220, 38, 38, 0.5);
+}
+
+.contactBtn,
+.actionBtn {
+    padding: 0.75rem 1.75rem;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactBtn {
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    border: 1px solid transparent;
+}
+
+.actionBtn {
+    background-color: transparent;
+    color: #DC2626;
+    border: 1px solid #DC2626;
+    font-family: var(--font-geist-mono), monospace;
+}
+
+.contactBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
+.actionBtn:hover {
+    background-color: #DC2626;
+    color: #000;
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .link {
+        display: none;
+    }
+}
+
+.banner {
+    background-color: var(--color-accent-secondary);
+    color: white;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    animation: slideDown 0.4s ease-out;
+}
+
+.headerB2C .banner {
+    background-color: #DC2626;
+    color: #000;
+    font-family: var(--font-geist-mono), monospace;
+    font-weight: 800;
+}
+
+.banner p {
+    margin: 0;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,572 @@
+/* Contenedor Principal */
+.exitWrapper {
+    min-height: 100vh;
+    background-color: #0B1120;
+    /* Azul medianoche profundo según contexto */
+    color: #F8FAFC;
+    font-family: var(--font-sans), sans-serif;
+    position: relative;
+    overflow-x: hidden;
+    background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 40%),
+        radial-gradient(circle at bottom left, rgba(15, 23, 42, 0.8), transparent 40%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 2rem 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* Hero Section del Podcast */
+.podcastHero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+
+.heroText {
+    flex: 1;
+    max-width: 600px;
+}
+
+.badgeWrapper {
+    margin-bottom: 1.5rem;
+}
+
+.podcastBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+}
+
+.title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #F8FAFC;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.description {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #94A3B8;
+    margin-bottom: 3rem;
+}
+
+/* Plataformas (Links) */
+.platforms {
+    margin-top: 2rem;
+}
+
+.platformsTitle {
+    font-size: 0.9rem;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.platformsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.platformLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    color: #F8FAFC;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.platformLink:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(59, 130, 246, 0.2);
+}
+
+/* Container for Hosts and Guests */
+.hostsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex-shrink: 0;
+}
+
+/* Tarjeta del Anfitrión (Host) */
+.hostCard {
+    width: 350px;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.hostCard:hover {
+    transform: translateY(-5px);
+}
+
+.hostImageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #0F172A;
+}
+
+.hostImage {
+    object-fit: cover;
+    object-position: center top;
+}
+
+.hostPlaceholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-weight: bold;
+    font-size: 4rem;
+    letter-spacing: 0.1em;
+}
+
+.hostInfo {
+    padding: 2rem;
+}
+
+.hostRole {
+    display: block;
+    font-size: 0.85rem;
+    color: #3B82F6;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.hostName {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin-bottom: 1rem;
+}
+
+.hostBio {
+    font-size: 0.95rem;
+    color: #94A3B8;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.hostSocials {
+    display: flex;
+    gap: 1rem;
+}
+
+.hostSocials a {
+    color: #64748B;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.hostSocials a:hover {
+    color: #F8FAFC;
+    background: rgba(59, 130, 246, 0.2);
+}
+
+/* Dashboard Grid (Video Principal + Recientes) */
+.dashboardGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.videoSection,
+.recentList {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.videoHeader {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.videoHeader h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    background-color: #000;
+}
+
+.iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.placeholderVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748B;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    background: #0f172a;
+}
+
+/* Guest Banner (Horizontal Hero Left) */
+.upcomingGuestBanner {
+    margin-top: 2rem;
+    padding: 1.5rem 1.75rem;
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.upcomingGuestBanner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #3B82F6, transparent);
+}
+
+.upcomingLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #60A5FA;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.guestBannerContent {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.guestImageWrapper {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    min-height: 70px;
+    max-height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #0F172A;
+    border: 2px solid rgba(59, 130, 246, 0.4);
+}
+
+.guestImage {
+    object-fit: cover !important;
+    object-position: center top !important;
+}
+
+.guestPlaceholder {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    min-height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-weight: bold;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.guestInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.guestHeader {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.guestRole {
+    font-size: 0.7rem;
+    color: #3B82F6;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}
+
+.guestName {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+.guestBio {
+    font-size: 0.85rem;
+    color: #94A3B8;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+/* Guest Card (Small) debajo del anfitrión */
+.guestCardSmall {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.guestCardSmall:hover {
+    transform: translateY(-3px);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.guestImageSmallWrapper {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    max-width: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #0F172A;
+    border: 2px solid rgba(59, 130, 246, 0.4);
+}
+
+.guestPlaceholderSmall {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+}
+
+.guestInfoSmall {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.guestHeaderSmall {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.guestRoleSmall {
+    display: flex;
+    align-items: center;
+    font-size: 0.65rem;
+    color: #3B82F6;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}
+
+.guestNameSmall {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin: 0;
+}
+
+/* Lista de Recientes */
+.videoListParams {
+    display: flex;
+    flex-direction: column;
+}
+
+.videoListItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: background 0.2s ease;
+    text-decoration: none;
+}
+
+.videoListItem:hover {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.videoListItem:last-child {
+    border-bottom: none;
+}
+
+.vListThumb {
+    position: relative;
+    width: 120px;
+    height: 68px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #000;
+}
+
+.vListThumb img {
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.videoListItem:hover .vListThumb img {
+    transform: scale(1.05);
+}
+
+.vListInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vListInfo h4 {
+    margin: 0 0 0.25rem;
+    font-size: 0.95rem;
+    color: #F8FAFC;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+}
+
+.vListDate {
+    font-size: 0.8rem;
+    color: #64748B;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .podcastHero {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .heroText {
+        max-width: 100%;
+    }
+
+    .hostCard {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .dashboardGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 100px 1.5rem 3rem;
+    }
+
+    .title {
+        font-size: clamp(2.5rem, 8vw, 3rem);
+    }
+}

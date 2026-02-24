@@ -1,0 +1,23 @@
+{
+  "data": {
+    "id": 1,
+    "documentId": "gol42zrnpcjtkcu4r0bsumyu",
+    "tituloPrincipal": "EXIT: Entrevistas a Fondo",
+    "createdAt": "2026-02-23T05:40:12.507Z",
+    "updatedAt": "2026-02-23T06:06:59.862Z",
+    "publishedAt": "2026-02-23T06:06:59.845Z",
+    "descripcion": "Hola soy Mar, host de Guarimba Digital y en este espacio vamos a generar conversaciones profundas, poderosas y divertidas para mirar la vida desde otra perspectiva.\nBienvenidos a EXIT!",
+    "youtubeChannelId": "UCD8zk0B8YZoLFv3M9Q_579Q",
+    "redesSociales": [],
+    "anfitrion": {
+      "id": 1,
+      "nombre": "Mar Filipo",
+      "rol": "Entrevistadora",
+      "bio": null,
+      "enlaceX": null,
+      "enlaceInstagram": null
+    },
+    "logo": null
+  },
+  "meta": {}
+}
