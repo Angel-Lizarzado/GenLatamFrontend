@@ -72,7 +72,7 @@ export default async function Footer({ mode = 'b2b', logo }: FooterProps) {
                             {isB2C ? (
                                 <>
                                     <li><Link href="/guarimba">Guarimba</Link></li>
-                                    <li><Link href="/exit">Campaña EXIT</Link></li>
+                                    <li><Link href="/exit">Entrevistas en EXIT</Link></li>
                                     <li><Link href="/" className={styles.backLink}>← Volver al inicio</Link></li>
                                 </>
                             ) : (
